@@ -1,0 +1,39 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+		<ion-content class="has-header custom" has-bouncing="false">
+			<div class="page-content">
+				<section class="workout-header" style="background: url('{{workoutData.Workout.image}}') no-repeat; background-size: 100%;">
+					<section class="container">
+						<span class="title-over"> Workout</span>
+					</section> 
+					<div class="push-item push-left1"></div>  
+    				<div class="push-item push-left2"></div>
+    			</section>
+    			<section class="toning-data-block">
+					<h1>{{workoutData.Workout.name}} </h1>
+				  	<div class="clearfix"></div>
+				  	<ul  ng-repeat="workoutPlan in workoutPlan.ActivityGroup">
+				  		<li class="top-head"> {{workoutPlan.name}}:</li>
+				       	<div class="clearfix"></div>
+				  		<li class="insetShadow" ng-repeat="WorkoutActivity in workoutPlan.WorkoutActivity"> 
+				  			<p> {{WorkoutActivity.name}} </p> 
+				  			<span ng-show="WorkoutActivity.activity_time">{{WorkoutActivity.activity_time}}</span> 
+				  		</li>
+				  	</ul>  
+				  	<ul>
+				  		<li class="insetShadow"> 
+				  			<p> &nbsp; </p> 
+				  			<span>&nbsp;</span> 
+				  		</li>
+				  	</ul>
+
+				  	<div class="clearfix"></div>
+				</section>  
+				<div class="clearfix"></div>
+			</div>
+		</ion-content>
+	</ion-view>
+	<div class="bottom-fixed" style="z-index: 10001;bottom: 0;left: 0;right: 0;">
+		<button class="btn-green red-on-active no-bottom-margin" ui-sref="app.loggedin.workoutstart({workout_id: workoutData.Workout.id, type_id: $root.$stateParams.type_id})">START WORKOUT</button>
+	</div>
+</ion-pane>

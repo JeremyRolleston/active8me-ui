@@ -1,0 +1,14 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+		<ion-content class="has-header custom eat-out-bg" has-bouncing="false">
+			<div class="page-content">
+				<div class="same-item-content">Healthy Eating Out Tips</div>
+
+				<div class="descipriont-con">
+					<p class="white-text">{{currentNutritionTip.description}}</p>
+				</div>
+			</div>
+			<modal-window title="DISCLAIMER" content="For best result follow the recommended recipes and meal plans from our dieticians and experts. <br />If you can't, here are some tips to help you choose healthy eat-out options." button-text="EAT OUT" status="open" done-fn="markAsDone(true)"></modal-window>
+		</ion-content>
+	</ion-view>
+</ion-pane>

@@ -1,0 +1,34 @@
+<ion-slide-box ng-if="showOnBoarding">
+    <ion-slide>
+    	<div class="onboarding-slider onboarding-slider-one">
+    		<h1>active8me</h1>
+    	</div>
+    </ion-slide>
+    <ion-slide>
+        <div class="onboarding-slider onboarding-slider-two">
+        	<h1>active8me</h1>
+        </div>
+    </ion-slide>
+    <ion-slide>
+    	<div class="onboarding-slider onboarding-slider-three">
+    		<h1>active8me</h1>
+    		<input type="button" ng-click="showGoInForm()" value="Login or Join">
+    	</div>
+    </ion-slide>
+</ion-slide-box>
+<div ng-if="!showOnBoarding && !userLoggedIn">
+    <ion-nav-view></ion-nav-view>
+</div>
+<div ng-if="mainPages">
+	<ion-header-bar class="bar-stable">
+                <h1 class="title">Ionic Blank Starter</h1>
+            </ion-header-bar>
+            <ion-content>
+                
+            </ion-content>
+</div>
+
+
+<div class="loader-container" ng-if="showSpinner">
+        <ion-spinner></ion-spinner>
+    </div>

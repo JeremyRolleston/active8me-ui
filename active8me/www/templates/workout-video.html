@@ -1,0 +1,23 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+		<ion-content class="has-header custom" has-bouncing="false">
+            <div class="page-content">
+    			<div class="video-container">
+                    <iframe src="{{video.video_link}}" frameborder="0" allowfullscreen></iframe>
+                    <div class="same-badge-left left-align" style="top: auto !important;bottom: 5px;">
+                        <div class="main-tt">{{workoutData.Workout.name}}</div>
+                        <div class="sub-tt">{{workoutData.Workout.workout_time}}</div>
+                        <div class="sub-tt">{{workoutData.Workout.calorie_burned}}</div>
+                    </div>
+                </div>
+                <div class="video-content">
+                	<h4><b class="vivek">{{video.title}}</b></h4>
+                	<p ng-bind-html="video.description"></p>
+                	<div class="center-content-container">
+    		  			<button class="btn-green red-on-active no-bottom-margin" ng-click="markAsCompleted()">DONE / WORKOUT COMPLETED</button>
+    		  		</div>
+                </div>
+            </div>
+ 		</ion-content>
+ 	</ion-view>
+</ion-pane>

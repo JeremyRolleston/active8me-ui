@@ -1,0 +1,48 @@
+<ion-pane>
+	<ion-view hide-nav-bar="true">
+		<div class="bar bar-header header-height">
+			<button class="button icon ion-chevron-left" ui-sref="app.loggedin.workoutplan({workout_id: workoutData.Workout.id, type_id: $root.$stateParams.type_id})"></button>
+			<h1 class="title">{{minutes}}:{{seconds}}</h1>
+		</div>
+		<ion-content class="has-header custom" has-bouncing="false">
+			<section class="workout-md-block">
+				<section class="container">
+					<h1>{{workoutPlan.ActivityGroup[currentActivityIndex].name}}</h1>
+					<div class="clearfix"> </div>
+					<h2> 
+						{{workoutPlan.ActivityGroup[currentActivityIndex].description1}}
+					</h2>
+					<span class="para">{{workoutPlan.ActivityGroup[currentActivityIndex].description2}}</span>
+				</section> 
+				<div class="clearfix"> </div>
+ 				<section class="workout-md-data-block">
+ 					<ul>
+    					<li class="insetShadow" ng-repeat="WorkoutActivity in workoutPlan.ActivityGroup[currentActivityIndex].WorkoutActivity"> 
+    						<span class="activity-img"><img ng-src="{{WorkoutActivity.activity_thumb}}" /></span>
+    						<p> {{WorkoutActivity.name}}</p> 
+    						<span class="activity_time">{{WorkoutActivity.activity_time}}</span> 
+    						<span class="activty-button">
+    							<button class="button icon ion-chevron-right button-right" ng-click="showActivityDetails(WorkoutActivity)"></button>
+    						</span>
+    					</li>
+ 
+  					</ul>   
+  					<ul>
+  						<li class="insertShadow">
+  							<p>&nbsp;</p>
+  						</li>
+  					</ul>
+ 				</section> 
+		</ion-content>
+	</ion-view>
+	<div class="bottom-fixed" style="z-index: 10001;bottom: 0;left: 0;right: 0;" ng-if="!timerStarted && currentTimer > 0">
+		<button class="btn-green red-on-active no-bottom-margin" ng-click="startActivity()">START</button>
+		
+	</div>
+	<div class="bottom-fixed" style="z-index: 10001;bottom: 0;left: 0;right: 0;" ng-if="timerStarted && currentTimer > 0">
+		<button class="btn-green red-on-active no-bottom-margin selected" ng-click="pauseActivity()">PAUSE</button>
+	</div>
+	<div class="bottom-fixed" style="z-index: 10001;bottom: 0;left: 0;right: 0;" ng-if="!timerStarted && currentTimer == 0">
+		<button class="btn-green red-on-active no-bottom-margin" ng-click="setActivity(currentActivityIndex + 1)">{{workoutPlan.ActivityGroup.length - 1 == currentActivityIndex ? 'FINISH WORKOUT' : 'DONE' }}</button>
+	</div>
+</ion-pane>

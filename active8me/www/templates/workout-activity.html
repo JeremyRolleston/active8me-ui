@@ -1,0 +1,19 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+		<ion-content class="has-header custom" has-bouncing="false">
+			<div class="page-content">
+				<div class="list card no-margin no-border">
+				  	<div class="item item-body no-padding bottom-margin">
+				  		<img class="full-image fixed-height" ng-src="{{workoutActivtyData.activity_image}}">
+				  		<h2 class="title-tt">{{workoutActivtyData.name}}</h2>
+				  		<p ng-bind-html="workoutActivtyData.description1" class="content content-tt "></p>
+
+				  		<div class="center-content-container">
+				  			<button class="btn-green red-on-active no-bottom-margin" ui-sref="app.loggedin.workoutstart({workout_id: $root.$stateParams.Workout.id, type_id: $root.$stateParams.type_id})">BACK</button>
+				  		</div>
+				  	</div>
+				</div>
+			</div>
+		</ion-content>
+	</ion-view>
+</ion-pane>

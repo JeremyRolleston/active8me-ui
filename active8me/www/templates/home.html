@@ -1,0 +1,49 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+	<ion-content class="has-header custom" has-bouncing="false">
+		<div class="page-content">
+			<section class="home-progress">
+				<div class="home-progress-week">
+					<div class="home-progress-week-circle">
+						{{progressData.week}}
+					</div>
+					<div class="home-progress-week-text">Week</div>
+				</div>
+				<div class="home-progress-progress">
+					<div class="home-progress-bar">
+						<tek-progress-bar ng-model="progressData.progressVal"></tek-progress-bar>
+						<div class="home-progress-bar-text">
+							<div class="home-progress-bar-text-left">
+								{{progressData.earned_points}} points
+							</div>
+							<div class="home-progress-bar-text-right">
+								<div class="normal-text">{{progressData.remaining}} pts to </div>NEXT LEVEL
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="hero" ng-repeat="feed in feeds" ng-init="currentIndex=$index" style="background: url('{{feed.thumb}}'); background-size: cover;" ng-click="goMyDetails(currentIndex)">
+	            <section class="container">
+	               	<div>
+	                	<div class="push-left">
+	                    	<h1 class="title-over1">{{feed.day}}</h1>
+	                   	</div>
+	                    <div class="push-right"> 
+	                    	<p class="top-rightband" ng-class="{'green': feed.nutrition_type, 'blue': feed.workout_type}">{{feed.nutrition_type || feed.workout_type }} </p>  
+	                    </div>
+	                   	<div class="clearfix"></div>
+	                   	<div class="push-left">
+	                   		<h2 class="title-over2">{{feed.title}}</h2>
+	                   	</div>
+	                   	<div class="push-right" ng-if="feed.workout_type && feed.day == 'Today'"> 
+                       		<span class="timepicker-container"> 12</span> 
+                    	</div>
+	                </div>
+	               
+	            </section>
+	        </section>
+		</div>
+	</ion-content>
+	</ion-view>
+</ion-pane>

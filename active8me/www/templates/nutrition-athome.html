@@ -1,0 +1,28 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+	<ion-content class="has-header custom" has-bouncing="false">
+		<div class="page-content center-content" ng-if="homeDataLoaded">
+			<ion-spinner></ion-spinner>
+		</div>
+		<div class="page-content">
+			<div class="list card no-margin no-border">
+			  	<div class="item item-body no-padding bottom-margin">
+			  		<div class="same-badge-left bottom left-align">
+			  			<div class="main-tt">{{currentNutritionType.type}}</div>
+			  			<div class="sub-tt">{{currentNutrition.prepare_time}}</div>
+			  			<div class="sub-tt">{{currentNutrition.calorie_intake}}</div>
+			  		</div>
+			  		<img class="full-image fixed-height" ng-src="{{currentNutrition.thumb}}">
+			  			<h2 class="title-tt">{{currentNutrition.title}}</h2>
+			  		<p ng-bind-html="currentNutrition.description" class="content content-tt "></p>
+
+
+			  		<div class="center-content-container">
+			  			<button class="btn-green red-on-active no-bottom-margin" ng-click="markAsDone()">DONE / COOKED</button>
+			  		</div>
+			  	</div>
+			</div>
+		</div>
+	</ion-content>
+	</ion-view>
+</ion-pane>

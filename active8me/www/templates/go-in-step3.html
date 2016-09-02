@@ -1,0 +1,46 @@
+<div class="form-wizard-container">
+	<ion-content has-bouncing="false">
+		<ul class="form-wizard-header">
+			<li>
+				<a ui-sref="app.goIn.step1" class="circle">Step <br />1</a>
+				<span class="line after"></span>
+			</li>
+			<li>
+				<span class="line before"></span>
+				<a ui-sref="app.goIn.step2" class="circle">Step <br />2</a>
+				<span class="line after"></span>
+			</li>
+			<li class="active">
+				<span class="line before"></span>
+				<a ui-sref="app.goIn.step3" class="circle">Step <br />3</a>
+				<span class="line after"></span>
+			</li>
+			<li>
+				<span class="line before"></span>
+				<a ng-click="goFourth()" class="circle">Step <br />4</a>
+			</li>
+		</ul>
+		<div class="step-form">
+			<div class="form-group" style="margin-bottom: 10px;">
+				<strong>What is your fitness level?</strong>
+				<ion-checkbox ng-model="level.selected" ng-repeat="level in fitnessLevels"  ng-change="onSubSelection(fitnessLevels, level, 'fitnessLevel')">
+					{{level.name}}
+				</ion-checkbox>
+			</div>
+			<div class="form-group">
+				<strong>Calorie Level</strong>
+				<div ng-repeat="calorieLevel in calorieLevels">
+					<ion-checkbox ng-model="calorieLevel.selected" ng-change="onSubSelection(calorieLevels, calorieLevel, 'calorieLevel')">
+						{{calorieLevel.name}} <b class="light-geen">{{calorieLevel.recommended ? ' - Recommended' : ''}}</b>
+					</ion-checkbox>
+					<p>
+						{{calorieLevel.description}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="button" value="NEXT" class="btn-green" ng-click="goFourth()" />
+			</div>
+		</div>
+	</ion-content>
+</div>

@@ -1,0 +1,29 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+		<ion-content class="has-header custom" style="background: url('{{workoutData.Workout.image}}'); background-size: cover;" has-bouncing="false">
+			<div class="page-content">
+				<div class="same-badge-left">Workout</div>
+				<div class="same-item-content">{{workoutData.Workout.name}}</div>
+
+				<div class="middle-items" ng-if="notRestDay">
+					<button class="btn-green red-on-active left-align no-bottom-margin" ng-click="toggleAll()">
+						{{currentMethod.title}}
+						<span class="arrowdown-white"></span>
+					</button>
+
+
+					<div ng-if="showAll">
+						<button class="btn-green red-on-active left-align no-bottom-margin" ng-if="method.id!=currentMethod.id" ng-click="changeMethod(method)" ng-repeat="method in methods">
+							{{method.title}}
+						</button>	
+					</div>
+				</div>
+
+				<div style="position: fixed; bottom: 0; height: 70px;width: 100%;" ng-if="notRestDay">
+					<a class="icon-video" ui-sref="app.loggedin.workoutvideo({workout_id: workoutData.Workout.id})" ng-if="currentMethod.title=='AT HOME'">Workout Video</a>
+					<a class="bottom-icon icon-plan"  ui-sref="app.loggedin.workoutplan({workout_id: workoutData.Workout.id, type_id: currentMethod.id})">Workout Plan</a>
+				</div>
+			</div>
+		</ion-content>
+	</ion-view>
+</ion-pane>

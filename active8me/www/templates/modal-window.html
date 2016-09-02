@@ -1,0 +1,18 @@
+<div ng-if="myStatus=='open'">
+	<div class="loader-container dark-mask">
+	</div>
+	<div class="modal-container">
+		<div class="modal-header">
+			<h3>
+				{{attr.title}}
+				<span class="close" ng-click="closeMe()"></span>
+			</h3>
+		</div>
+		<div class="modal-content">
+			<p ng-bind-html="attr.content"></p>
+		</div>
+		<div class="modal-footer">
+  			<button class="btn-green red-on-active no-bottom-margin" ng-show="attr.buttonText" ng-click="onDone()">{{attr.buttonText}}</button>
+  		</div>
+	</div>
+</div>

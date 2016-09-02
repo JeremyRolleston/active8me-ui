@@ -1,0 +1,22 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+		<ion-content class="has-header custom" has-bouncing="false">
+			<div class="page-content">
+				<div class="congrats-message">
+					<h1>Congratulations!</h1>
+					<h4>You have completed your workout</h4>	
+
+					<div class="points-container">
+						<div class="point">+100 pts</div>
+						<div class="point-message">
+							Completing {{workoutData.Workout.name}} Workout
+						</div> 
+					</div>		
+				</div>
+				<div class="bottom-fixed">
+		  			<button class="btn-green red-on-active no-bottom-margin" ui-sref="app.loggedin.home">DONE</button>
+		  		</div>
+			</div>
+		</ion-content>
+	</ion-view>
+</ion-pane>

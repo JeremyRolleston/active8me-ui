@@ -1,0 +1,45 @@
+<div class="form-wizard-container">
+	<ion-content has-bouncing="false">
+		<ul class="form-wizard-header">
+			<li>
+				<a ui-sref="app.goIn.step1" class="circle">Step <br />1</a>
+				<span class="line after"></span>
+			</li>
+			<li class="active">
+				<span class="line before"></span>
+				<a ui-sref="app.goIn.step2" class="circle">Step <br />2</a>
+				<span class="line after"></span>
+			</li>
+			<li>
+				<span class="line before"></span>
+				<a ng-click="goThird()" class="circle">Step <br />3</a>
+				<span class="line after"></span>
+			</li>
+			<li>
+				<span class="line before"></span>
+				<a ng-click="goFourth()" class="circle">Step <br />4</a>
+			</li>
+		</ul>
+		<div class="step-form">
+			<div class="form-group" style="margin-bottom: 10px;">
+				<p>
+					Please pick a program - but don't worry if you change your mind. 
+					You can always change it later in settings.
+				</p>
+			</div>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<strong>What is your program?</strong>
+				<ion-checkbox ng-repeat="program in programs" ng-model="program.selected" ng-change="onProgramSelection(program)">{{program.name}}</ion-checkbox>
+			</div>
+			<div ng-repeat="program in programs" ng-show="program.selected && program.sub">
+				<div class="form-group">
+					<strong>{{program.sub.title}}</strong>
+					<ion-checkbox ng-repeat="sub_item in program.sub.items" ng-model="sub_item.selected" ng-change="onSubSelection(program.sub.items, sub_item, 'sub_program')">{{sub_item.title}}</ion-checkbox>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="button" value="NEXT" class="btn-green red-on-active" ng-click="goThird()" />
+			</div>
+		</div>
+	</ion-content>
+</div>

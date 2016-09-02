@@ -1,0 +1,93 @@
+<div class="form-wizard-container">
+	<ion-content has-bouncing="false">
+		<ul class="form-wizard-header">
+			<li>
+				<a ui-sref="app.goIn.step1" class="circle">Step <br />1</a>
+				<span class="line after"></span>
+			</li>
+			<li>
+				<span class="line before"></span>
+				<a ui-sref="app.goIn.step2" class="circle">Step <br />2</a>
+				<span class="line after"></span>
+			</li>
+			<li>
+				<span class="line before"></span>
+				<a ui-sref="app.goIn.step3" class="circle">Step <br />3</a>
+				<span class="line after"></span>
+			</li>
+			<li class="active">
+				<span class="line before"></span>
+				<a ui-sref="app.goIn.step4" class="circle">Step <br />4</a>
+			</li>
+		</ul>
+		<div class="step-form">
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label>NAME</label>
+				<input type="text" placeholder="" class="form-control" ng-model="userModel.name" />
+			</div>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label>GENDER</label>
+				<div class="custom-select fifty">
+					<select ng-model="userModel.gender">
+						<option value="" disabled="disabled">Gender</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label>DATE OF BIRTH</label>
+				<div class="custom-select thirtythree float-left">
+					<select ng-model="userModel.dob.day">
+						<option value="" disabled="disabled">Day</option>
+						<option value="{{d}}" ng-repeat="d in getRange(1, 31)">{{d}}</option>
+					</select>
+				</div>
+				<div class="custom-select thirtythree float-left">
+					<select ng-model="userModel.dob.month">
+						<option value="" disabled="disabled">Month</option>
+						<option value="{{m.id}}" ng-repeat="m in months">{{m.title}}</option>
+					</select>
+				</div>
+				<div class="custom-select thirtythree float-left">
+					<select ng-model="userModel.dob.year">
+						<option value="" disabled="disabled">Year</option>
+						<option ng-value="{{y}}" ng-repeat="y in getRange(1900, 2016, true)">{{y}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label>COUNTRY</label>
+				<div class="custom-select full">
+					<select ng-model="userModel.country">
+						<option value="" disabled="disabled">Country</option>
+						<option value="2">Singapore</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div style="float:left; width:46%;margin-right: 5%">
+					<label>HEIGHT</label>
+					<div class="custom-select full">
+						<select ng-model="userModel.height">
+							<option value="" disabled="disabled">Height</option>
+							<option ng-value="{{y}}" ng-repeat="y in getRange(100, 200)">{{y}}cm</option>
+						</select>
+					</div>
+				</div>
+				<div class="float:left; width:44%;">
+					<label>WEIGHT</label>
+					<div class="custom-select full">
+						<select ng-model="userModel.weight">
+							<option value="" disabled="disabled">Weight</option>
+							<option ng-value="{{y}}" ng-repeat="y in getRange(30, 200)">{{y}}kg</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="button" value="SUBMIT" class="btn-green red-on-active" ng-click="doCreateUser()" />
+			</div>
+		</div>
+	</ion-content>
+</div>

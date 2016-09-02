@@ -1,0 +1,73 @@
+<ion-pane>
+	<ion-view title="{{header}}">
+		<ion-content class="has-header custom" has-bouncing="false">
+			<div class="page-content">
+				<section class="after-before">
+					<div class="green-icon">
+						<a ng-click="toggleInfo()">
+							<img src="img/info-icon.png" alt="" />
+						</a>
+					</div>
+					<div class="two-section">
+						<ul>
+							<li>
+								<div class="list-inside">
+									<h3>Before Photo</h3>
+									<p class="photo-date" ng-if="currentData.before.exists">
+										<span class="dsply-date">
+											{{currentData.before.date | userFriendlyDate}}
+										</span>
+									</p>
+									<p class="photo-date" ng-show="!currentData.before.exists">
+										<input type="date" ng-model="currentData.before.date" />
+										<span class="today">{{currentData.before.date | userFriendlyDate}}</span>
+										<span class="calender-icon"><a href="#"><img src="img/calender-icon.png" alt="" /></a></span>
+									</p>
+									
+									
+									<div class="after-before-img" ng-if="currentData.before.exists">
+										<img ng-src="{{currentData.before.image}}" alt="Before" style="height: 100%;width: 100%;" />
+									</div>
+									<div class="after-before-img" ng-show="!currentData.before.exists">
+										<div class="button upload-button" ng-model="beforefile" name="beforefile" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-select="beforeUpload($file)">UPLOAD IMAGE</div>
+    									<img ngf-src="beforefile" ng-show="beforefile" class="image-uploaded">
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list-inside">
+									<h3>After Photo</h3>
+									<p class="photo-date">
+										<input type="date" ng-model="currentData.after.date" />
+										<span class="today">{{currentData.after.date | userFriendlyDate}}</span>
+										<span class="calender-icon"><a href="#"><img src="img/calender-icon.png" alt="" /></a></span>
+									</p>
+									<div class="after-before-img">
+										<div class="button upload-button" ng-model="file" name="file" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-select="afterUpload($file)" ng-class="{'no-text': currentData.after.image}">UPLOAD IMAGE</div>
+    									<img ngf-src="file" ng-show="file" class="image-uploaded">
+    									<img ng-src="{{currentData.after.image}}" ng-if="currentData.after.image" class="image-uploaded" />
+									</div>
+								</div>
+							</li>
+							<li class="clr"></li>
+						</ul>
+					</div>
+					<div class="share_Section">
+						<h3>Share Your Image:</h3>
+						<p>(All other information is confidential)</p>
+						<ul>
+							<li><a href="#" class="share-instragram"><span>Share</span></a></li>
+							<li><a href="#" class="share-twitter"><span>Share</span></a></li>
+							<li><a href="#" class="share-fb"><span>Share</span></a></li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+				</section>
+
+				<modal-window title="INFORMATION" content="Make sure you always take your photos in the same circumstances. This means that you should: <br /> <ul><li>- Take a full body length shot</li><li>- Take a front view</li><li>- Stand in a natural relaxed stance – not posing and not 'sucking it in'.</li><li>- Wear the same clothes – eg crop top / bikini / shorts / underwear</li><li>- Ideally use the same background (plain and uncluttered is better)</li><li>- Ideally have someone take the photo for you or if you take it yourself keep the camera away from your face.</li></ul>" status="open" ng-if="showInfo" close-fn="toggleInfo()"></modal-window>
+			</div>
+		</ion-content>
+	</ion-view>
+</ion-pane>

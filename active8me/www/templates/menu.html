@@ -1,0 +1,54 @@
+<ion-pane>
+    <ion-view title="{{header}}">
+        <ion-content class="has-header custom" has-bouncing="false">
+            <div class="page-content">
+                <section class="container-navmenu">
+                    <ul class="nav-menu">
+                        <li ng-class="{'selected': $root.prevState.name == 'app.loggedin.home' }">
+                            <a class="home" ui-sref="app.loggedin.home" nav-direction="forward">
+                                <i class="icon-home"></i> 
+                                HOME
+                            </a>
+                        </li>
+                        <li>
+                            <a class="workout">
+                                <i class="icon-myworkout"></i>
+                                MY WORKOUT
+                            </a>
+                        </li>
+                        <li><a class="nutrition" nav-direction="forward"><i class="icon-nutrition"></i>MY NUTRITION</a></li>
+                        <li><a class="dailydose" nav-direction="forward"><i class="icon-dailydose"></i>DAILY DOSE OF INSPIRATION</a></li>
+                        <li ng-class="{'selected': $root.prevState.name == 'app.loggedin.myprogresstools' }">
+                            <a class="myprogress" ui-sref="app.loggedin.myprogresstools" nav-direction="forward">
+                                <i class="icon-myprogress"></i>
+                                MY PROGRESS & TOOLS
+                            </a>
+                        </li>
+                    </ul> 
+                </section>
+            </div>
+        </ion-content>
+    </ion-view>
+</ion-pane>
+<!-- 
+
+<ion-list>
+    <ion-item menu-close ui-sref="app.loggedin.home" ng-class="{'activated': $state.current.name == 'app.loggedin.home' }">
+        HOME
+    </ion-item>
+    <ion-item menu-close href="#">
+        MY WORKOUT
+    </ion-item>
+    <ion-item menu-close href="#">
+        MY NUTRITION
+    </ion-item>
+    <ion-item menu-close href="#">
+        DAILY DOSE OF INSPIRATION
+    </ion-item>
+    <ion-item menu-close href="#">
+        MY PROGRESS AND TOOLS
+    </ion-item>
+    <ion-item menu-close ng-click="doLogout()">
+        LOGOUT
+    </ion-item>
+</ion-list> -->
